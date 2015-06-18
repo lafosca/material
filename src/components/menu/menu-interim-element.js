@@ -76,8 +76,8 @@ function MenuProvider($$interimElementProvider) {
         angular.extend(opts, {
           alreadyOpen: false,
           isRemoved: false,
-          target: angular.element('md-content'), //make sure it's not a naked dom node
-          parent: angular.element(opts.parent),
+          target: angular.element(opts.target), //make sure it's not a naked dom node
+          parent: angular.element('md-content'),
           menuContentEl: angular.element(element[0].querySelector('md-menu-content')),
           backdrop: opts.hasBackdrop && angular.element('<md-backdrop class="md-menu-backdrop md-click-catcher">')
         });
