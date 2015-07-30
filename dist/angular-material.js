@@ -7801,6 +7801,7 @@ function SelectProvider($$interimElementProvider) {
       }
       if (focusedNode) {
         opts.focusedNode = focusedNode;
+        //commenting line below, will solve the scrolling issue but also disables autofocus
         // focusedNode.focus();
       }
 
