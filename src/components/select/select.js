@@ -736,8 +736,8 @@ function SelectProvider($$interimElementProvider) {
           shouldOpenAroundTarget = false,
           bounds = {
             left: parentNode.scrollLeft + SELECT_EDGE_MARGIN,
-            top: parentNode.scrollTop + SELECT_EDGE_MARGIN,
-            bottom: parentRect.height + parentNode.scrollTop - SELECT_EDGE_MARGIN,
+            top: $(window).scrollTop() + SELECT_EDGE_MARGIN,
+            bottom: parentRect.height + $(window).scrollTop() - SELECT_EDGE_MARGIN,
             right: parentRect.width - SELECT_EDGE_MARGIN
           },
           spaceAvailable = {
