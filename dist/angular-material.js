@@ -1055,7 +1055,7 @@ if (shouldHijackClicks) {
   document.addEventListener('click', function(ev) {
     // Space/enter on a button, and submit events, can send clicks
     var isKeyClick = ev.clientX === 0 && ev.clientY === 0;
-    if (window.jQuery || isKeyClick || ev.$material) return;
+    // if (window.jQuery || isKeyClick || ev.$material) return;
 
     // Prevent clicks unless they're sent by material
     ev.preventDefault();
