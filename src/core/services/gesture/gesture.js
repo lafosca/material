@@ -24,6 +24,10 @@ if (shouldHijackClicks) {
   document.addEventListener('click', function(ev) {
     // Space/enter on a button, and submit events, can send clicks
     var isKeyClick = ev.clientX === 0 && ev.clientY === 0;
+
+    // see https://github.com/angular/material/issues/1842
+    // and https://github.com/angular/material/issues/2085
+    // and https://github.com/angular/material/issues/1826
     // if (window.jQuery || isKeyClick || ev.$material) return;
 
     // Prevent clicks unless they're sent by material
