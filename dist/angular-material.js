@@ -553,7 +553,7 @@ angular.module('material.core')
         { left: 0, top: 0, width: 0, height: 0 };
       return {
         left: nodeRect.left - offsetRect.left + offsetParent.scrollLeft,
-        top: nodeRect.top - offsetRect.top + offsetParent.scrollTop,
+        top: nodeRect.top - offsetRect.top + $(window).scrollTop(),
         width: nodeRect.width,
         height: nodeRect.height
       };
@@ -1055,6 +1055,10 @@ if (shouldHijackClicks) {
   document.addEventListener('click', function(ev) {
     // Space/enter on a button, and submit events, can send clicks
     var isKeyClick = ev.clientX === 0 && ev.clientY === 0;
+
+    // see https://github.com/angular/material/issues/1842
+    // and https://github.com/angular/material/issues/2085
+    // and https://github.com/angular/material/issues/1826
     // if (window.jQuery || isKeyClick || ev.$material) return;
 
     // Prevent clicks unless they're sent by material
@@ -7741,8 +7745,8 @@ function SelectProvider($$interimElementProvider) {
           shouldOpenAroundTarget = false,
           bounds = {
             left: parentNode.scrollLeft + SELECT_EDGE_MARGIN,
-            top: parentNode.scrollTop + SELECT_EDGE_MARGIN,
-            bottom: parentRect.height + parentNode.scrollTop - SELECT_EDGE_MARGIN,
+            top: $(window).scrollTop() + SELECT_EDGE_MARGIN,
+            bottom: parentRect.height + $(window).scrollTop() - SELECT_EDGE_MARGIN,
             right: parentRect.width - SELECT_EDGE_MARGIN
           },
           spaceAvailable = {
